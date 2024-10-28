@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MegaSoft - Playeras</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar {
+            background: #3178be;
+            padding: 1rem;
+            color: rgb(255, 255, 255);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+
+        .nav-links a:hover {
+            background: #34495e;
+        }
+
+        .cart-icon {
+            position: relative;
+            cursor: pointer;
+        }
+
+        .cart-count {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            background: red;
+            color: white;
+            border-radius: 50%;
+            padding: 2px 6px;
+            font-size: 0.8rem;
+        }
+
+        .dropdown {
+            position: relative;
+            display: inline-block;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 160px;
+            box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+            z-index: 1;
+            border-radius: 5px;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .dropdown-content a {
+            color: #2c3e50;
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 0.5rem 0;
+            font-size: 1.1rem;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ddd;
+            border-radius: 5px;
+        }
+
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            padding: 2rem;
+        }
+
+        .product-card {
+            border: 5px solid #3178be;
+            border-radius: 10px;
+            padding: 1rem;
+            text-align: center;
+            background: white;
+            transition: transform 0.3s;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .product-card img {
+            max-width: 100%;
+            height: auto;
+        }
+
+        .product-card h3 {
+            margin: 1rem 0;
+        }
+
+        .price {
+            color: #18324d;
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .btn {
+            background: #3178be;
+            color: rgb(255, 255, 255);
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+
+        .btn:hover {
+            background: #34495e;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">MegaSoft</div>
+        <div class="nav-links">
+            <a href="index.html">Inicio</a>
+            <div class="dropdown">
+                <a href="#" class="dropbtn">Contacto</a>
+                <div class="dropdown-content">
+                    <a href="https://www.facebook.com/sergio.oritizcastaneda" target="_blank">🌐 Facebook</a>
+                    <a href="https://www.instagram.com/sergmxl1/" target="_blank">📷 Instagram</a>
+                    <a href="www.linkedin.com/in/sergio-castañeda-908190294" target="_blank">🔗 LinkedIn</a>
+                </div>
+            </div>
+            <a href="info.html">Info</a>
+            <div class="cart-icon">
+                <a href="cart.html"><span>🛒</span></a>
+                <span class="cart-count">0</span>
+            </div>
+        </div>
+    </nav>
+
+    <div class="products-grid">
+        <div class="product-card">
+            <img src="img3.png" alt="Abstract">
+            <h3>Abstract Tech</h3>
+            <p class="price">$599.99</p>
+            <button class="btn">Agregar al carrito</button>
+        </div>
+        <div class="product-card">
+            <img src="img1.png" alt="Tech">
+            <h3>Cyber Tech</h3>
+            <p class="price">$399.99</p>
+            <button class="btn">Agregar al carrito</button>
+        </div>
+        <div class="product-card">
+            <img src="img2.png" alt="Retro Tech">
+            <h3>Retro Tech</h3>
+            <p class="price">$699.99</p>
+            <button class="btn">Agregar al carrito</button>
+        </div>
+    </div>
+
+    <!-- Gestión del carrito -->
+    <script>
+        const btns = document.querySelectorAll('.btn');
+        const cartCount = document.querySelector('.cart-count');
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        
+        // Actualizar contador
+        cartCount.textContent = cart.length;
+
+        btns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                const card = e.target.closest('.product-card');
+                const product = {
+                    name: card.querySelector('h3').textContent,
+                    price: card.querySelector('.price').textContent,
+                    quantity: 1
+                };
+                
+                cart.push(product);
+                localStorage.setItem('cart', JSON.stringify(cart));
+                cartCount.textContent = cart.length;
+            });
+        });
+    </script>
+</body>
+</html>

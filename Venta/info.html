@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MegaSoft - Información</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .navbar {
+            background: #3178be;
+            padding: 1rem;
+            color: white;
+        }
+
+        .back-btn {
+            color: white;
+            text-decoration: none;
+        }
+
+        .dev-container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 1rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .dev-card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            overflow: hidden;
+            transition: transform 0.3s;
+            text-align: center;
+        }
+
+        .dev-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .dev-image {
+            width: 100%;
+            padding: 1rem;
+        }
+
+        .dev-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+        }
+
+        .dev-info {
+            padding: 1.5rem;
+        }
+
+        .dev-name {
+            font-size: 1.5rem;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .dev-career {
+            color: #34495e;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .dev-specialty {
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+        }
+
+        .dev-description {
+            color: #666;
+            line-height: 1.6;
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="index.html" class="back-btn">← Volver a la tienda</a>
+    </nav>
+
+    <div class="dev-container">
+        <div class="dev-card">
+            <div class="dev-image">
+                <img src="sergio.png" alt="Foto del desarrollador">
+            </div>
+            <div class="dev-info">
+                <h2 class="dev-name">Sergio Oswaldo Ortiz Castañeda</h2>
+                <p class="dev-career">Ingeniería en Sistemas Computacionales</p>
+                <p class="dev-specialty">Especialidad: Frontend Developer</p>
+                <p class="dev-description">
+                    desarrollador frontend con experiencia en inteligencia artificial y sistemas Linux. 
+                    Destacado en hackatones y soporte de TI, aporta soluciones innovadoras y técnicas sólidas en frontend y UX.
+                </p>
+            </div>
+        </div>
+
+        <div class="dev-card">
+            <div class="dev-image">
+                <img src="manuel.png" alt="Foto del desarrollador 2">
+            </div>
+            <div class="dev-info">
+                <h2 class="dev-name">Juan Manuel Rosales Ramirez</h2>
+                <p class="dev-career">Ingeniería en Sistemas Computacionales</p>
+                <p class="dev-specialty">Especialidad: Backend Developer</p>
+                <p class="dev-description">
+                    Desarrollador backend con experiencia en redes y soporte de hardware. 
+                    Capaz de diseñar sistemas escalables y seguros, con conocimientos en diagnóstico de hardware y configuración de redes para optimizar infraestructuras.
+                </p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
